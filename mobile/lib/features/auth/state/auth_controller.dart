@@ -6,6 +6,7 @@ import '../../auth/data/auth_repository.dart';
 import '../../auth/data/auth_models.dart';
 import '../../../core/http.dart';
 import '../../../core/token_storage.dart';
+import '../../tasks/state/task_providers.dart';
 
 /// Provee una única instancia reutilizable de FlutterSecureStorage para almacenamiento seguro.
 final flutterSecureStorageProvider = Provider<FlutterSecureStorage>((ref) {
@@ -46,14 +47,18 @@ class AuthController extends AsyncNotifier<UserMe?> {
     }
   }
 
-  /// Login + carga del perfil.
+  /// Login + carga del perfil y limpieza de tareas.
   Future<void> login({required String email, required String password}) async {
     state = const AsyncLoading();
+    // Limpiar tareas antes de cargar nuevo usuario
+    ref.invalidate(tasksControllerProvider);
     state = await AsyncValue.guard(() async {
       await _repo.login(LoginDto(email, password));
       final me = await _repo.me();
       return me;
     });
+    // Refrescar tareas del usuario actual
+    ref.read(tasksControllerProvider.notifier).refresh();
   }
 
   /// Registro que guarda token y luego carga el perfil.
@@ -78,8 +83,10 @@ class AuthController extends AsyncNotifier<UserMe?> {
     state = await AsyncValue.guard(() async => _repo.me());
   }
 
-  /// Cierra sesión y limpia estado.
+  /// Cierra sesión, limpia estado y tareas.
   Future<void> logout() async {
+    // Limpiar tareas antes de cerrar sesión
+    ref.invalidate(tasksControllerProvider);
     await _repo.logout();
     state = const AsyncData(null);
   }
