@@ -5,3 +5,4 @@ export class DuplicateEmailAppException extends ConflictException {
         super('Email already in use');
     }
 }
+

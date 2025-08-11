@@ -323,29 +323,120 @@ async getTaskById(id: number, userId: number): Promise<Task> {
 
 ## 🔄 API RESTful - Diseño Semántico
 
-### **Estructura de Rutas**
+### **Estructura de Rutas y Parámetros**
 
+#### **🔐 Authentication**
+| Método | Endpoint | Descripción | Parámetros Body | Autenticación |
+|--------|----------|-------------|-----------------|---------------|
+| `POST` | `/api/auth/register` | Registro de usuario | `{ "email": string, "password": string, "name"?: string }` | Público |
+| `POST` | `/api/auth/login` | Inicio de sesión | `{ "email": string, "password": string }` | Público |
+| `POST` | `/api/auth/logout` | Cerrar sesión | Ninguno | JWT |
+
+#### **👥 Users**
+| Método | Endpoint | Descripción | Parámetros | Autenticación |
+|--------|----------|-------------|------------|---------------|
+| `GET` | `/api/users/me` | Perfil del usuario autenticado | Ninguno | JWT |
+
+#### **📝 Tasks**
+| Método | Endpoint | Descripción | Parámetros | Autenticación |
+|--------|----------|-------------|------------|---------------|
+| `GET` | `/api/tasks` | Listar tareas con filtros | Query: `done?`, `status?`, `search?` | JWT |
+| `GET` | `/api/tasks/:id` | Obtener tarea específica | Path: `id` (number) | JWT |
+| `POST` | `/api/tasks/create` | Crear nueva tarea | Body: `{ "title": string, "description"?: string, "status"?: TaskStatus }` | JWT |
+| `PUT` | `/api/tasks/:id` | Actualizar tarea completa | Path: `id` + Body: `UpdateTaskDto` | JWT |
+| `PATCH` | `/api/tasks/:id/status` | Cambiar solo el estado | Path: `id` + Body: `{ "status": TaskStatus }` | JWT |
+| `PATCH` | `/api/tasks/:id/toggle` | Toggle completado/pendiente | Path: `id` | JWT |
+| `DELETE` | `/api/tasks/:id/delete` | Eliminar tarea | Path: `id` | JWT |
+| `POST` | `/api/tasks/refresh` | Forzar recarga de tareas | Ninguno | JWT |
+
+#### **🏥 Health**
+| Método | Endpoint | Descripción | Parámetros | Autenticación |
+|--------|----------|-------------|------------|---------------|
+| `GET` | `/api/health` | Estado general | Ninguno | Público |
+| `GET` | `/api/health/database` | Estado de la base de datos | Ninguno | Público |
+| `GET` | `/api/health/detailed` | Información detallada | Ninguno | Público |
+
+### **📋 Parámetros Detallados**
+
+#### **GET /api/tasks - Filtros de Consulta**
+```typescript
+// Query Parameters (todos opcionales)
+{
+  done?: boolean;        // Filtrar por tareas completadas (true/false)
+  status?: TaskStatus;   // Filtrar por estado: 'pending' | 'in_progress' | 'completed'
+  search?: string;       // Búsqueda en título y descripción (case-insensitive)
+}
 ```
-Authentication:
-POST /api/v1/auth/register  - Registro de usuario
-POST /api/v1/auth/login     - Inicio de sesión
 
-Users:
-GET  /api/users/me          - Perfil del usuario autenticado
+**Ejemplos de uso:**
+```bash
+# Obtener todas las tareas del usuario
+GET /api/tasks
 
-Tasks:
-GET    /api/tasks           - Listar tareas (con filtros)
-GET    /api/tasks/:id       - Obtener tarea específica
-POST   /api/tasks           - Crear nueva tarea
-PUT    /api/tasks/:id       - Actualizar tarea completa
-PATCH  /api/tasks/:id/status - Cambiar solo el estado
-PATCH  /api/tasks/:id/toggle - Toggle completado/pendiente
-DELETE /api/tasks/:id/delete - Eliminar tarea
+# Solo tareas completadas
+GET /api/tasks?done=true
 
-Health:
-GET /api/health             - Estado general
-GET /api/health/database    - Estado de la base de datos
-GET /api/health/detailed    - Información detallada
+# Solo tareas pendientes
+GET /api/tasks?done=false&status=pending
+
+# Buscar tareas que contengan "importante"
+GET /api/tasks?search=importante
+
+# Combinar filtros
+GET /api/tasks?done=false&status=in_progress&search=urgente
+```
+
+#### **POST /api/tasks/create - Crear Tarea**
+```typescript
+// Body Parameters
+{
+  title: string;           // Requerido, máximo 120 caracteres
+  description?: string;    // Opcional, máximo 1000 caracteres
+  status?: TaskStatus;     // Opcional: 'pending' | 'in_progress' | 'completed'
+}
+```
+
+#### **PUT /api/tasks/:id - Actualizar Tarea**
+```typescript
+// Path Parameter
+id: number;               // ID de la tarea
+
+// Body Parameters (todos opcionales)
+{
+  title?: string;         // Máximo 120 caracteres
+  description?: string;   // Máximo 1000 caracteres
+  status?: TaskStatus;    // 'pending' | 'in_progress' | 'completed'
+}
+```
+
+#### **PATCH /api/tasks/:id/status - Cambiar Estado**
+```typescript
+// Path Parameter
+id: number;               // ID de la tarea
+
+// Body Parameter
+{
+  status: TaskStatus;     // Requerido: 'pending' | 'in_progress' | 'completed'
+}
+```
+
+#### **POST /api/auth/register - Registro**
+```typescript
+// Body Parameters
+{
+  email: string;          // Requerido, formato email válido, único
+  password: string;       // Requerido, mínimo 6 caracteres
+  name?: string;          // Opcional, máximo 120 caracteres
+}
+```
+
+#### **POST /api/auth/login - Login**
+```typescript
+// Body Parameters
+{
+  email: string;          // Requerido, formato email válido
+  password: string;       // Requerido
+}
 ```
 
 ### **Semántica HTTP**

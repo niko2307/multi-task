@@ -37,8 +37,12 @@ export class TasksService {
 
         const { done, status, search } = query;
         const queryBuilder = this.taskRepository.createQueryBuilder('task')
-            .where('task.userId = :userId', { userId })
-            .andWhere('task.done = :done', { done: false });
+            .where('task.userId = :userId', { userId });
+
+        // Filtrar por estado de completado solo si se proporciona el parámetro
+        if (done !== undefined) {
+            queryBuilder.andWhere('task.done = :done', { done });
+        }
 
         if (status) {
             queryBuilder.andWhere('task.status = :status', { status });
@@ -89,30 +93,22 @@ export class TasksService {
         this.validateNumericId(userId, 'User ID');
 
         try {
-            // Primero verificamos si la tarea existe
-            const taskExists = await this.taskRepository.findOne({
-                where: { id },
-            });
-
-            if (!taskExists) {
-                throw new EntityNotFoundAppException('Task');
-            }
-
-            // Luego verificamos si pertenece al usuario
+            // Una sola consulta: buscar la tarea que pertenece al usuario
             const task = await this.taskRepository.findOne({
                 where: { id, userId },
                 // relations: ['user'], // Descomenta si quieres incluir datos del usuario
             });
 
             if (!task) {
-                throw new ForbiddenResourceAppException('You do not have access to this task');
+                // No distinguimos entre "no existe" y "no pertenece al usuario"
+                // por seguridad - no revelamos información sobre recursos de otros usuarios
+                throw new EntityNotFoundAppException('Task');
             }
 
             return task;
         } catch (error) {
             if (error instanceof EntityNotFoundAppException ||
-                error instanceof BadRequestAppException ||
-                error instanceof ForbiddenResourceAppException) {
+                error instanceof BadRequestAppException) {
                 throw error;
             }
             throw new BadRequestAppException(`Error retrieving task: ${error.message}`);

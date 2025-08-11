@@ -21,4 +21,15 @@ export class AuthController {
     login(@Body() dto: LoginDto) {
         return this.auth.login(dto);
     }
+
+    // POST /api/auth/logout - Logout (para limpiar estado en frontend)
+    @Post('logout')
+    logout() {
+        // Este endpoint no hace nada en el backend, pero permite al frontend
+        // limpiar el estado local antes de hacer logout
+        return {
+            message: 'Logout successful',
+            timestamp: new Date().toISOString()
+        };
+    }
 }

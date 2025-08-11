@@ -104,4 +104,18 @@ export class TasksController {
     ): Promise<void> {
         return this.tasksService.deleteTask(id, userId);
     }
+
+    // POST /api/tasks/refresh - Forzar recarga de tareas (limpiar caché)
+    @Post('refresh')
+    @HttpCode(HttpStatus.OK)
+    async refreshTasks(
+        @GetUser('sub') userId: number,
+    ): Promise<{ message: string; timestamp: string }> {
+        // Este endpoint no hace nada en el backend, pero permite al frontend
+        // forzar una recarga del estado de tareas
+        return {
+            message: 'Tasks cache cleared successfully',
+            timestamp: new Date().toISOString()
+        };
+    }
 }
