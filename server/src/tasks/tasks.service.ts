@@ -37,8 +37,12 @@ export class TasksService {
 
         const { done, status, search } = query;
         const queryBuilder = this.taskRepository.createQueryBuilder('task')
-            .where('task.userId = :userId', { userId })
-            .andWhere('task.done = :done', { done: false });
+            .where('task.userId = :userId', { userId });
+
+        // Filtrar por estado de completado solo si se proporciona el parámetro
+        if (done !== undefined) {
+            queryBuilder.andWhere('task.done = :done', { done });
+        }
 
         if (status) {
             queryBuilder.andWhere('task.status = :status', { status });
