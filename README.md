@@ -190,6 +190,12 @@ Este proyecto es una aplicación completa de gestión de tareas (**Task Manager*
 
 Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como **ChatGPT** y **Cursor AI** con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, **sin sustituir el criterio y las decisiones técnicas tomadas por el equipo**.
 
+### 📚 Recursos de Aprendizaje Utilizados
+- **Documentación oficial** de NestJS, Flutter 
+- **Videos tutoriales** de YouTube para conceptos específicos
+- **Stack Overflow** para resolver problemas técnicos
+- **Repositorios de ejemplo** en GitHub para mejores prácticas
+
 ---
 
 ## 📁 Estructura del Proyecto
