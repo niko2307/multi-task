@@ -53,6 +53,7 @@ export class TasksController {
         @Param('id', ParseIntPipe) id: number,
         @GetUser('sub') userId: number,
     ): Promise<Task> {
+        console.log('🔍 [DEBUG] Controller getTaskById - id:', id, 'userId:', userId);
         return this.tasksService.getTaskById(id, userId);
     }
 
