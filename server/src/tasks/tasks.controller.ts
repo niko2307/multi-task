@@ -38,6 +38,9 @@ export class TasksController {
         @Query('search') search?: string,
     ): Promise<Task[]> {
 
+        console.log('🔍 [DEBUG] Controller getTasks - userId:', userId);
+        console.log('🔍 [DEBUG] Controller getTasks - userId type:', typeof userId);
+
         const query = {
             done,
             status,

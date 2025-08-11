@@ -35,6 +35,9 @@ export class TasksService {
         // Validar userId
         this.validateNumericId(userId, 'User ID');
 
+        console.log('🔍 [DEBUG] getTasks - userId:', userId);
+        console.log('🔍 [DEBUG] getTasks - query:', query);
+
         const { done, status, search } = query;
         const queryBuilder = this.taskRepository.createQueryBuilder('task')
             .where('task.userId = :userId', { userId });
@@ -57,7 +60,16 @@ export class TasksService {
 
         queryBuilder.orderBy('task.createdAt', 'DESC');
 
+        // Log de la query SQL generada
+        const sql = queryBuilder.getSql();
+        console.log('🔍 [DEBUG] SQL Query:', sql);
+        console.log('🔍 [DEBUG] SQL Parameters:', queryBuilder.getParameters());
+
         const tasks = await queryBuilder.getMany();
+        
+        console.log('🔍 [DEBUG] Tasks found:', tasks.length);
+        console.log('🔍 [DEBUG] Tasks userIds:', tasks.map(t => ({ id: t.id, userId: t.userId })));
+        
         return tasks;
     }
     //metodo para crear una tarea del usuario , utilizando el dto de creacion de tarea 
