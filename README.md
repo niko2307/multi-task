@@ -1,69 +1,222 @@
-<h1 align="center">📌 Multi-Task - Gestor de Tareas</h1>
+# 📌 Multi-Task - Gestor de Tareas
 
-<p align="center">
-  <strong>Aplicación completa de gestión de tareas</strong> compuesta por un backend desarrollado con <b>NestJS</b> y un frontend móvil en <b>Flutter</b>.
-</p>
+<div align="center">
 
----
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 
-<h2>📖 Descripción del Proyecto</h2>
+**Aplicación completa de gestión de tareas** compuesta por un backend desarrollado con **NestJS** y un frontend móvil en **Flutter**.
 
-<p>
-Este proyecto es una aplicación completa de gestión de tareas (<b>Task Manager</b>) que permite a un usuario autenticado <b>crear, consultar, actualizar y eliminar tareas</b> de manera sencilla, rápida y segura.  
-Toda la información se almacena en una base de datos <b>PostgreSQL alojada en Neon</b>, y las operaciones están protegidas mediante <b>autenticación JWT</b>.
-</p>
+[![Deploy on Render](https://img.shields.io/badge/Deploy%20on-Render-00ADD8?style=for-the-badge&logo=render&logoColor=white)](https://multi-task.onrender.com)
 
-<ul>
-  <li><b>Backend</b>
-    <ul>
-      <li>Implementado en <b>NestJS</b> con <b>TypeORM</b>.</li>
-      <li>CRUD completo de tareas con filtros, búsqueda, cambio de estado y marcado como completadas.</li>
-      <li>Sistema de autenticación y autorización para garantizar que solo usuarios registrados puedan acceder a las funcionalidades.</li>
-      <li>Desplegado en <b>Render</b>.</li>
-    </ul>
-  </li>
-  <li><b>Frontend móvil</b>
-    <ul>
-      <li>Desarrollado con <b>Flutter</b> (solo Android).</li>
-      <li>Permite iniciar sesión, gestionar tareas y ver cambios en tiempo real.</li>
-      <li>Funcionalidades de búsqueda, filtrado y marcado rápido de tareas.</li>
-      <li>Interfaz optimizada para una experiencia fluida.</li>
-    </ul>
-  </li>
-</ul>
+</div>
 
 ---
 
-<h2>🛠 Manual de Uso</h2>
+## 📖 Descripción del Proyecto
 
-<p>Para ejecutar este proyecto localmente es necesario:</p>
+Este proyecto es una aplicación completa de gestión de tareas (**Task Manager**) que permite a usuarios autenticados **crear, consultar, actualizar y eliminar tareas** de manera sencilla, rápida y segura. Toda la información se almacena en una base de datos **PostgreSQL alojada en Neon**, y las operaciones están protegidas mediante **autenticación JWT**.
 
-<ol>
-  <li><b>Tener instalado Flutter</b> (versión 3.x o superior).</li>
-  <li><b>Android Studio</b> para manejar el emulador.</li>
-  <li>Configurar un <b>AVD (Android Virtual Device)</b>, preferiblemente un Pixel con Android 13 o superior.</li>
-  <li><b>Java 17</b> instalado y configurado como predeterminado.</li>
-</ol>
+### 🏗️ Arquitectura del Sistema
 
-<p>💡 <b>Nota:</b> El backend ya está desplegado en Render, por lo que no es necesario ejecutarlo localmente.</p>
+#### Backend (NestJS)
+- ✅ **Framework**: NestJS con TypeORM
+- ✅ **Base de datos**: PostgreSQL (Neon)
+- ✅ **Autenticación**: JWT
+- ✅ **Despliegue**: Render
+- ✅ **Funcionalidades**:
+  - CRUD completo de tareas
+  - Filtros y búsqueda avanzada
+  - Cambio de estado y marcado como completadas
+  - Sistema de autenticación y autorización
+  - Endpoints de salud del sistema
+
+#### Frontend Móvil (Flutter)
+- ✅ **Framework**: Flutter (Android)
+- ✅ **Estado**: Riverpod
+- ✅ **HTTP Client**: Dio
+- ✅ **Funcionalidades**:
+  - Autenticación de usuarios
+  - Gestión completa de tareas
+  - Búsqueda y filtrado en tiempo real
+  - Interfaz optimizada y responsive
+  - Sincronización con backend
 
 ---
 
-<h3>🔗 Configuración del Frontend</h3>
+## 🚀 Inicio Rápido
 
-<p>En el código de Flutter, configurar la URL base de la API en un archivo como <code>constants.dart</code> o <code>app_config.dart</code>:</p>
+### Prerrequisitos
 
-```dart
-const String BASE_URL = "https://multi-task.onrender.com/api";
-<h4>Comandos para ejecutar el frontend:</h4>
-flutter pub get
-flutter run
+- **Flutter** (versión 3.x o superior)
+- **Android Studio** con emulador configurado
+- **AVD (Android Virtual Device)** - Pixel con Android 13+
+- **Java 17** instalado y configurado
 
-<h2>📡 Endpoints del Backend</h2> <table> <tr> <th>Método</th> <th>Endpoint</th> <th>Descripción</th> </tr> <tr><td>POST</td><td>/api/auth/register</td><td>Registrar un nuevo usuario</td></tr> <tr><td>POST</td><td>/api/auth/login</td><td>Iniciar sesión y obtener JWT</td></tr> <tr><td>GET</td><td>/api/users/me</td><td>Obtener perfil del usuario autenticado</td></tr> <tr><td>GET</td><td>/api/tasks</td><td>Listar tareas con filtros y búsqueda</td></tr> <tr><td>GET</td><td>/api/tasks/:id</td><td>Obtener una tarea por ID</td></tr> <tr><td>POST</td><td>/api/tasks/create</td><td>Crear nueva tarea</td></tr> <tr><td>PUT</td><td>/api/tasks/:id</td><td>Actualizar una tarea completa</td></tr> <tr><td>PATCH</td><td>/api/tasks/:id/status</td><td>Cambiar estado de tarea</td></tr> <tr><td>PATCH</td><td>/api/tasks/:id/toggle</td><td>Alternar completado</td></tr> <tr><td>DELETE</td><td>/api/tasks/:id/delete</td><td>Eliminar una tarea</td></tr> <tr><td>GET</td><td>/api/health</td><td>Estado general del backend</td></tr> <tr><td>GET</td><td>/api/health/database</td><td>Estado de la base de datos</td></tr> <tr><td>GET</td><td>/api/health/detailed</td><td>Estado detallado del sistema</td></tr> </table> <p><b>📍 Base URL:</b> <code>"https://multi-task.onrender.com/api"</code></p>
+### Configuración del Frontend
 
-<h2>🌐 URL de despliegue del backend</h2> <p>🔗 <a href="https://multi-task.onrender.com" target="_blank">"https://multi-task.onrender.com"</a></p>
+1. **Clonar el repositorio**
+   ```bash
+   git clone <repository-url>
+   cd multitask/mobile
+   ```
 
+2. **Instalar dependencias**
+   ```bash
+   flutter pub get
+   ```
 
-<h2>📸 Evidencia Fotográfica</h2> <p align="center"> <img src="image/image.png" width="250" /> <img src="image/image-1.png" width="250" /> <img src="image/image-2.png" width="250" /> <img src="image/image-3.png" width="250" /> <img src="image/image-4.png" width="250" /> <img src="image/image-5.png" width="250" /> <img src="image/image-6.png" width="250" /> <img src="image/image-7.png" width="250" /> <img src="image/image-8.png" width="250" /> <img src="image/image-9.png" width="250" /> </p>
+3. **Configurar la URL de la API**
+   
+   En `lib/core/env.dart`, asegúrate de que la URL base esté configurada:
+   ```dart
+   const String BASE_URL = "https://multi-task.onrender.com/api";
+   ```
 
-<h2>🤖 Uso de Inteligencia Artificial en el Desarrollo</h2> <p> Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como <b>ChatGPT</b> y <b>Cursor AI</b> con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, <b>sin sustituir el criterio y las decisiones técnicas tomadas por el equipo</b>. </p> ```
+4. **Ejecutar la aplicación**
+   ```bash
+   flutter run
+   ```
+
+> 💡 **Nota**: El backend ya está desplegado en Render, por lo que no es necesario ejecutarlo localmente.
+
+---
+
+## 📡 API Endpoints
+
+### Autenticación
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `POST` | `/api/auth/register` | Registrar nuevo usuario |
+| `POST` | `/api/auth/login` | Iniciar sesión y obtener JWT |
+| `GET` | `/api/users/me` | Obtener perfil del usuario autenticado |
+
+### Gestión de Tareas
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `GET` | `/api/tasks` | Listar tareas con filtros y búsqueda |
+| `GET` | `/api/tasks/:id` | Obtener una tarea por ID |
+| `POST` | `/api/tasks/create` | Crear nueva tarea |
+| `PUT` | `/api/tasks/:id` | Actualizar una tarea completa |
+| `PATCH` | `/api/tasks/:id/status` | Cambiar estado de tarea |
+| `PATCH` | `/api/tasks/:id/toggle` | Alternar completado |
+| `DELETE` | `/api/tasks/:id/delete` | Eliminar una tarea |
+
+### Monitoreo
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| `GET` | `/api/health` | Estado general del backend |
+| `GET` | `/api/health/database` | Estado de la base de datos |
+| `GET` | `/api/health/detailed` | Estado detallado del sistema |
+
+**📍 Base URL**: `https://multi-task.onrender.com/api`
+
+---
+
+## 🌐 Despliegue
+
+### Backend
+- **Plataforma**: Render
+- **URL**: [https://multi-task.onrender.com](https://multi-task.onrender.com)
+- **Base de datos**: PostgreSQL en Neon
+
+### Frontend
+- **Plataforma**: Android
+- **Distribución**: APK generado localmente
+
+---
+
+## 📸 Capturas de Pantalla
+
+<div align="center">
+
+![Login Screen](image/image.png) ![Task List](image/image-1.png)
+![Task Creation](image/image-2.png) ![Task Details](image/image-3.png)
+![Task Management](image/image-4.png) ![Search Function](image/image-5.png)
+![Filter Options](image/image-6.png) ![User Profile](image/image-7.png)
+![Settings](image/image-8.png) ![Navigation](image/image-9.png)
+
+</div>
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+### Backend
+- **NestJS** - Framework de Node.js
+- **TypeScript** - Lenguaje de programación
+- **TypeORM** - ORM para base de datos
+- **PostgreSQL** - Base de datos relacional
+- **JWT** - Autenticación
+- **Class-validator** - Validación de datos
+- **Jest** - Testing
+
+### Frontend
+- **Flutter** - Framework de desarrollo móvil
+- **Dart** - Lenguaje de programación
+- **Riverpod** - Gestión de estado
+- **Dio** - Cliente HTTP
+- **Shared Preferences** - Almacenamiento local
+
+### DevOps & Herramientas
+- **Render** - Plataforma de despliegue
+- **Neon** - Base de datos PostgreSQL
+- **Git** - Control de versiones
+- **Docker** - Containerización
+
+---
+
+## 🤖 Desarrollo con IA
+
+Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como **ChatGPT** y **Cursor AI** con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, **sin sustituir el criterio y las decisiones técnicas tomadas por el equipo**.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+multitask/
+├── mobile/                 # Aplicación Flutter
+│   ├── lib/
+│   │   ├── core/          # Configuraciones y utilidades
+│   │   ├── features/      # Módulos de funcionalidades
+│   │   │   ├── auth/      # Autenticación
+│   │   │   └── tasks/     # Gestión de tareas
+│   │   └── main.dart
+│   └── pubspec.yaml
+├── server/                # Backend NestJS
+│   ├── src/
+│   │   ├── auth/          # Módulo de autenticación
+│   │   ├── tasks/         # Módulo de tareas
+│   │   ├── users/         # Módulo de usuarios
+│   │   └── common/        # Utilidades comunes
+│   └── package.json
+└── README.md
+```
+
+---
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+---
+
+<div align="center">
+
+**Desarrollado con ❤️ para demostrar habilidades técnicas**
+
+</div>
