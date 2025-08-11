@@ -35,9 +35,6 @@ export class TasksService {
         // Validar userId
         this.validateNumericId(userId, 'User ID');
 
-        console.log('🔍 [DEBUG] getTasks - userId:', userId);
-        console.log('🔍 [DEBUG] getTasks - query:', query);
-
         const { done, status, search } = query;
         const queryBuilder = this.taskRepository.createQueryBuilder('task')
             .where('task.userId = :userId', { userId });
@@ -60,16 +57,7 @@ export class TasksService {
 
         queryBuilder.orderBy('task.createdAt', 'DESC');
 
-        // Log de la query SQL generada
-        const sql = queryBuilder.getSql();
-        console.log('🔍 [DEBUG] SQL Query:', sql);
-        console.log('🔍 [DEBUG] SQL Parameters:', queryBuilder.getParameters());
-
         const tasks = await queryBuilder.getMany();
-        
-        console.log('🔍 [DEBUG] Tasks found:', tasks.length);
-        console.log('🔍 [DEBUG] Tasks userIds:', tasks.map(t => ({ id: t.id, userId: t.userId })));
-        
         return tasks;
     }
     //metodo para crear una tarea del usuario , utilizando el dto de creacion de tarea 
@@ -105,30 +93,22 @@ export class TasksService {
         this.validateNumericId(userId, 'User ID');
 
         try {
-            // Primero verificamos si la tarea existe
-            const taskExists = await this.taskRepository.findOne({
-                where: { id },
-            });
-
-            if (!taskExists) {
-                throw new EntityNotFoundAppException('Task');
-            }
-
-            // Luego verificamos si pertenece al usuario
+            // Una sola consulta: buscar la tarea que pertenece al usuario
             const task = await this.taskRepository.findOne({
                 where: { id, userId },
                 // relations: ['user'], // Descomenta si quieres incluir datos del usuario
             });
 
             if (!task) {
-                throw new ForbiddenResourceAppException('You do not have access to this task');
+                // No distinguimos entre "no existe" y "no pertenece al usuario"
+                // por seguridad - no revelamos información sobre recursos de otros usuarios
+                throw new EntityNotFoundAppException('Task');
             }
 
             return task;
         } catch (error) {
             if (error instanceof EntityNotFoundAppException ||
-                error instanceof BadRequestAppException ||
-                error instanceof ForbiddenResourceAppException) {
+                error instanceof BadRequestAppException) {
                 throw error;
             }
             throw new BadRequestAppException(`Error retrieving task: ${error.message}`);
