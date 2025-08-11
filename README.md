@@ -133,11 +133,28 @@ Este proyecto es una aplicación completa de gestión de tareas (**Task Manager*
 
 <div align="center">
 
-![Login Screen](image/image.png) ![Task List](image/image-1.png)
-![Task Creation](image/image-2.png) ![Task Details](image/image-3.png)
-![Task Management](image/image-4.png) ![Search Function](image/image-5.png)
-![Filter Options](image/image-6.png) ![User Profile](image/image-7.png)
-![Settings](image/image-8.png) ![Navigation](image/image-9.png)
+### 🎨 Interfaz de Usuario - Multi-Task App
+
+<table>
+  <tr>
+    <td align="center"><b>Login</b><br><img src="image/image.png" width="200" alt="Login Screen"></td>
+    <td align="center"><b>Lista de Tareas</b><br><img src="image/image-1.png" width="200" alt="Task List"></td>
+    <td align="center"><b>Crear Tarea</b><br><img src="image/image-2.png" width="200" alt="Task Creation"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Detalles</b><br><img src="image/image-3.png" width="200" alt="Task Details"></td>
+    <td align="center"><b>Gestión</b><br><img src="image/image-4.png" width="200" alt="Task Management"></td>
+    <td align="center"><b>Búsqueda</b><br><img src="image/image-5.png" width="200" alt="Search Function"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Filtros</b><br><img src="image/image-6.png" width="200" alt="Filter Options"></td>
+    <td align="center"><b>Perfil</b><br><img src="image/image-7.png" width="200" alt="User Profile"></td>
+    <td align="center"><b>Configuración</b><br><img src="image/image-8.png" width="200" alt="Settings"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="3"><b>Navegación</b><br><img src="image/image-9.png" width="200" alt="Navigation"></td>
+  </tr>
+</table>
 
 </div>
 
