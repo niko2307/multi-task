@@ -92,12 +92,6 @@ export class TasksService {
         this.validateNumericId(id, 'Task ID');
         this.validateNumericId(userId, 'User ID');
 
-        console.log('🔍 [DEBUG] getTaskById - id:', id, 'userId:', userId);
-
-        // DEBUG: Verificar todas las tareas en la base de datos
-        const allTasks = await this.taskRepository.find();
-        console.log('🔍 [DEBUG] All tasks in DB:', allTasks.map(t => ({ id: t.id, userId: t.userId, title: t.title })));
-
         try {
             // Una sola consulta: buscar la tarea que pertenece al usuario
             const task = await this.taskRepository.findOne({
@@ -105,16 +99,12 @@ export class TasksService {
                 // relations: ['user'], // Descomenta si quieres incluir datos del usuario
             });
 
-            console.log('🔍 [DEBUG] getTaskById - task found:', task);
-
             if (!task) {
                 // No distinguimos entre "no existe" y "no pertenece al usuario"
                 // por seguridad - no revelamos información sobre recursos de otros usuarios
-                console.log('🔍 [DEBUG] getTaskById - task not found, throwing 404');
                 throw new EntityNotFoundAppException('Task');
             }
 
-            console.log('🔍 [DEBUG] getTaskById - returning task:', { id: task.id, userId: task.userId, title: task.title });
             return task;
         } catch (error) {
             if (error instanceof EntityNotFoundAppException ||

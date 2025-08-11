@@ -330,6 +330,7 @@ async getTaskById(id: number, userId: number): Promise<Task> {
 |--------|----------|-------------|-----------------|---------------|
 | `POST` | `/api/auth/register` | Registro de usuario | `{ "email": string, "password": string, "name"?: string }` | Público |
 | `POST` | `/api/auth/login` | Inicio de sesión | `{ "email": string, "password": string }` | Público |
+| `POST` | `/api/auth/logout` | Cerrar sesión | Ninguno | JWT |
 
 #### **👥 Users**
 | Método | Endpoint | Descripción | Parámetros | Autenticación |
@@ -346,6 +347,7 @@ async getTaskById(id: number, userId: number): Promise<Task> {
 | `PATCH` | `/api/tasks/:id/status` | Cambiar solo el estado | Path: `id` + Body: `{ "status": TaskStatus }` | JWT |
 | `PATCH` | `/api/tasks/:id/toggle` | Toggle completado/pendiente | Path: `id` | JWT |
 | `DELETE` | `/api/tasks/:id/delete` | Eliminar tarea | Path: `id` | JWT |
+| `POST` | `/api/tasks/refresh` | Forzar recarga de tareas | Ninguno | JWT |
 
 #### **🏥 Health**
 | Método | Endpoint | Descripción | Parámetros | Autenticación |
