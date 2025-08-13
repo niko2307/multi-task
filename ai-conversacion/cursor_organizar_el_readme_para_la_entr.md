@@ -1,3 +1,23 @@
+# Organizar el readme para la entrevista
+_Exported on 8/11/2025 at 12:25:53 GMT-5 from Cursor (1.4.3)_
+
+---
+
+**User**
+
+necesito que me orgaices bine este readme , por que se ve cortado  en el repositorio , ayudame porfa a dejalos bien profesional para la entrevista tecnica 
+
+---
+
+**Cursor**
+
+I'll help you organize and improve the README to make it look professional for your technical interview. Let me first read the current README to see what needs to be improved.
+
+
+I can see the README has formatting issues and needs better organization. Let me create a professional, well-structured README that will look great in your repository and impress during technical interviews.
+
+
+```markdown
 # 📌 Multi-Task - Gestor de Tareas
 
 <div align="center">
@@ -94,15 +114,6 @@ Este proyecto es una aplicación completa de gestión de tareas (**Task Manager*
 | `POST` | `/api/auth/login` | Iniciar sesión y obtener JWT |
 | `GET` | `/api/users/me` | Obtener perfil del usuario autenticado |
 
-<<<<<<< HEAD
-```dart
-const String BASE_URL = "https://multi-task.onrender.com/api";
-
-<h4>Comandos para ejecutar el frontend:</h4>
-
-flutter pub get
-flutter run
-=======
 ### Gestión de Tareas
 | Método | Endpoint | Descripción |
 |--------|----------|-------------|
@@ -113,7 +124,6 @@ flutter run
 | `PATCH` | `/api/tasks/:id/status` | Cambiar estado de tarea |
 | `PATCH` | `/api/tasks/:id/toggle` | Alternar completado |
 | `DELETE` | `/api/tasks/:id/delete` | Eliminar una tarea |
->>>>>>> d4c669de95bf2235899b165beaf2211482a707b1
 
 ### Monitoreo
 | Método | Endpoint | Descripción |
@@ -122,24 +132,10 @@ flutter run
 | `GET` | `/api/health/database` | Estado de la base de datos |
 | `GET` | `/api/health/detailed` | Estado detallado del sistema |
 
-<<<<<<< HEAD
-<h2>🌐 URL de despliegue del backend</h2> 
-
-<p>🔗 <a href="https://multi-task.onrender.com" target="_blank">"https://multi-task.onrender.com"</a></p>
-=======
 **📍 Base URL**: `https://multi-task.onrender.com/api`
->>>>>>> d4c669de95bf2235899b165beaf2211482a707b1
 
 ---
 
-<<<<<<< HEAD
-<h2>📸 Evidencia Fotográfica</h2>
-
- <p align="center"> <img src="image/image.png" width="250" /> <img src="image/image-1.png" width="250" /> <img src="image/image-2.png" width="250" /> <img src="image/image-3.png" width="250" /> <img src="image/image-4.png" width="250" /> <img src="image/image-5.png" width="250" /> <img src="image/image-6.png" width="250" /> <img src="image/image-7.png" width="250" /> <img src="image/image-8.png" width="250" /> <img src="image/image-9.png" width="250" /> </p>
-
-<h2>🤖 Uso de Inteligencia Artificial en el Desarrollo </h2> 
-<p> Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como <b>ChatGPT</b> y <b>Cursor AI</b> con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, <b>sin sustituir el criterio y las decisiones técnicas tomadas por el equipo</b>. </p> ```
-=======
 ## 🌐 Despliegue
 
 ### Backend
@@ -157,28 +153,11 @@ flutter run
 
 <div align="center">
 
-### 🎨 Interfaz de Usuario - Multi-Task App
-
-<table>
-  <tr>
-    <td align="center"><b>Login</b><br><img src="image/image.png" width="200" alt="Login Screen"></td>
-    <td align="center"><b>Lista de Tareas</b><br><img src="image/image-1.png" width="200" alt="Task List"></td>
-    <td align="center"><b>Crear Tarea</b><br><img src="image/image-2.png" width="200" alt="Task Creation"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Detalles</b><br><img src="image/image-3.png" width="200" alt="Task Details"></td>
-    <td align="center"><b>Gestión</b><br><img src="image/image-4.png" width="200" alt="Task Management"></td>
-    <td align="center"><b>Búsqueda</b><br><img src="image/image-5.png" width="200" alt="Search Function"></td>
-  </tr>
-  <tr>
-    <td align="center"><b>Filtros</b><br><img src="image/image-6.png" width="200" alt="Filter Options"></td>
-    <td align="center"><b>Perfil</b><br><img src="image/image-7.png" width="200" alt="User Profile"></td>
-    <td align="center"><b>Configuración</b><br><img src="image/image-8.png" width="200" alt="Settings"></td>
-  </tr>
-  <tr>
-    <td align="center" colspan="3"><b>Navegación</b><br><img src="image/image-9.png" width="200" alt="Navigation"></td>
-  </tr>
-</table>
+![Login Screen](image/image.png) ![Task List](image/image-1.png)
+![Task Creation](image/image-2.png) ![Task Details](image/image-3.png)
+![Task Management](image/image-4.png) ![Search Function](image/image-5.png)
+![Filter Options](image/image-6.png) ![User Profile](image/image-7.png)
+![Settings](image/image-8.png) ![Navigation](image/image-9.png)
 
 </div>
 
@@ -213,12 +192,6 @@ flutter run
 ## 🤖 Desarrollo con IA
 
 Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como **ChatGPT** y **Cursor AI** con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, **sin sustituir el criterio y las decisiones técnicas tomadas por el equipo**.
-
-### 📚 Recursos de Aprendizaje Utilizados
-- **Documentación oficial** de NestJS, Flutter 
-- **Videos tutoriales** de YouTube para conceptos específicos
-- **Stack Overflow** para resolver problemas técnicos
-- **Repositorios de ejemplo** en GitHub para mejores prácticas
 
 ---
 
@@ -267,4 +240,135 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 **Desarrollado con ❤️ para demostrar habilidades técnicas**
 
 </div>
->>>>>>> d4c669de95bf2235899b165beaf2211482a707b1
+```
+
+¡Perfecto! He reorganizado completamente tu README para que se vea profesional y bien estructurado. Los principales cambios incluyen:
+
+## ✨ Mejoras Implementadas:
+
+### �� **Diseño Visual**
+- **Badges profesionales** con las tecnologías utilizadas
+- **Encabezado centrado** con logo de despliegue
+- **Separadores claros** entre secciones
+- **Emojis organizados** para mejor navegación visual
+
+### �� **Estructura Mejorada**
+- **Descripción clara** del proyecto
+- **Arquitectura detallada** del sistema
+- **Guía de inicio rápido** paso a paso
+- **Tablas organizadas** para los endpoints
+- **Sección de tecnologías** bien categorizada
+
+### 🔧 **Contenido Técnico**
+- **Endpoints organizados** por categorías (Auth, Tasks, Health)
+- **Instrucciones claras** de configuración
+- **Estructura del proyecto** visual
+- **Información de despliegue** detallada
+
+### �� **Capturas de Pantalla**
+- **Grid organizado** de imágenes
+- **Descripciones** para cada captura
+- **Mejor presentación** visual
+
+### �� **Elementos Profesionales**
+- **Sección de contribución** estándar
+- **Información de licencia**
+- **Footer personalizado**
+- **Enlaces funcionales** al despliegue
+
+El README ahora se verá perfecto en GitHub y será muy impresionante para tu entrevista técnica, mostrando claramente:
+- Tu dominio de las tecnologías
+- La arquitectura del proyecto
+- La calidad del código
+- La documentación profesional
+- La capacidad de comunicación técnica
+
+¡Tu proyecto ahora tiene una presentación de nivel profesional! 🎉
+
+---
+
+**User**
+
+es que las imagenes , estas muy grandes quiero manejarles el tamano y quiero que se ven como en cuadriculo osea como un cloage porfa ayudame con eso 
+
+---
+
+**Cursor**
+
+¡Perfecto! Te ayudo a organizar las imágenes en un collage más compacto y atractivo. Voy a ajustar el tamaño y crear una disposición en cuadrícula que se vea profesional.
+
+
+```markdown
+## 📸 Capturas de Pantalla
+
+<div align="center">
+
+![Login Screen](image/image.png) ![Task List](image/image-1.png)
+![Task Creation](image/image-2.png) ![Task Details](image/image-3.png)
+![Task Management](image/image-4.png) ![Search Function](image/image-5.png)
+![Filter Options](image/image-6.png) ![User Profile](image/image-7.png)
+![Settings](image/image-8.png) ![Navigation](image/image-9.png)
+
+</div>
+
+->
+
+## 📸 Capturas de Pantalla
+
+<div align="center">
+
+### 🎨 Interfaz de Usuario - Multi-Task App
+
+<table>
+  <tr>
+    <td align="center"><b>Login</b><br><img src="image/image.png" width="200" alt="Login Screen"></td>
+    <td align="center"><b>Lista de Tareas</b><br><img src="image/image-1.png" width="200" alt="Task List"></td>
+    <td align="center"><b>Crear Tarea</b><br><img src="image/image-2.png" width="200" alt="Task Creation"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Detalles</b><br><img src="image/image-3.png" width="200" alt="Task Details"></td>
+    <td align="center"><b>Gestión</b><br><img src="image/image-4.png" width="200" alt="Task Management"></td>
+    <td align="center"><b>Búsqueda</b><br><img src="image/image-5.png" width="200" alt="Search Function"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Filtros</b><br><img src="image/image-6.png" width="200" alt="Filter Options"></td>
+    <td align="center"><b>Perfil</b><br><img src="image/image-7.png" width="200" alt="User Profile"></td>
+    <td align="center"><b>Configuración</b><br><img src="image/image-8.png" width="200" alt="Settings"></td>
+  </tr>
+  <tr>
+    <td align="center" colspan="3"><b>Navegación</b><br><img src="image/image-9.png" width="200" alt="Navigation"></td>
+  </tr>
+</table>
+
+</div>
+```
+
+¡Perfecto! He reorganizado las imágenes en un collage profesional con las siguientes mejoras:
+
+## ✨ **Cambios Realizados:**
+
+### 📐 **Tamaño Optimizado**
+- **Ancho fijo de 200px** para todas las imágenes
+- **Tamaño consistente** y uniforme
+- **Mejor proporción** para visualización
+
+### �� **Diseño en Cuadrícula**
+- **Tabla HTML** para alineación perfecta
+- **3 columnas** por fila (excepto la última)
+- **Centrado automático** de contenido
+- **Espaciado uniforme** entre elementos
+
+### 🏷️ **Etiquetas Descriptivas**
+- **Títulos claros** para cada imagen
+- **Nombres en español** más descriptivos
+- **Alt text** para accesibilidad
+- **Organización lógica** del flujo de la app
+
+### 📱 **Estructura Visual**
+- **Primera fila**: Login, Lista, Crear
+- **Segunda fila**: Detalles, Gestión, Búsqueda  
+- **Tercera fila**: Filtros, Perfil, Configuración
+- **Cuarta fila**: Navegación (centrada)
+
+Ahora las imágenes se ven como un collage profesional y compacto, perfecto para mostrar en tu entrevista técnica. El diseño es limpio, organizado y muestra claramente todas las funcionalidades de tu aplicación. ¡Se verá mucho mejor en GitHub! 🎉
+
