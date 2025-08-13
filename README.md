@@ -55,15 +55,22 @@ Toda la información se almacena en una base de datos <b>PostgreSQL alojada en N
 
 ```dart
 const String BASE_URL = "https://multi-task.onrender.com/api";
+
 <h4>Comandos para ejecutar el frontend:</h4>
+
 flutter pub get
 flutter run
 
 <h2>📡 Endpoints del Backend</h2> <table> <tr> <th>Método</th> <th>Endpoint</th> <th>Descripción</th> </tr> <tr><td>POST</td><td>/api/auth/register</td><td>Registrar un nuevo usuario</td></tr> <tr><td>POST</td><td>/api/auth/login</td><td>Iniciar sesión y obtener JWT</td></tr> <tr><td>GET</td><td>/api/users/me</td><td>Obtener perfil del usuario autenticado</td></tr> <tr><td>GET</td><td>/api/tasks</td><td>Listar tareas con filtros y búsqueda</td></tr> <tr><td>GET</td><td>/api/tasks/:id</td><td>Obtener una tarea por ID</td></tr> <tr><td>POST</td><td>/api/tasks/create</td><td>Crear nueva tarea</td></tr> <tr><td>PUT</td><td>/api/tasks/:id</td><td>Actualizar una tarea completa</td></tr> <tr><td>PATCH</td><td>/api/tasks/:id/status</td><td>Cambiar estado de tarea</td></tr> <tr><td>PATCH</td><td>/api/tasks/:id/toggle</td><td>Alternar completado</td></tr> <tr><td>DELETE</td><td>/api/tasks/:id/delete</td><td>Eliminar una tarea</td></tr> <tr><td>GET</td><td>/api/health</td><td>Estado general del backend</td></tr> <tr><td>GET</td><td>/api/health/database</td><td>Estado de la base de datos</td></tr> <tr><td>GET</td><td>/api/health/detailed</td><td>Estado detallado del sistema</td></tr> </table> <p><b>📍 Base URL:</b> <code>"https://multi-task.onrender.com/api"</code></p>
 
-<h2>🌐 URL de despliegue del backend</h2> <p>🔗 <a href="https://multi-task.onrender.com" target="_blank">"https://multi-task.onrender.com"</a></p>
+<h2>🌐 URL de despliegue del backend</h2> 
+
+<p>🔗 <a href="https://multi-task.onrender.com" target="_blank">"https://multi-task.onrender.com"</a></p>
 
 
-<h2>📸 Evidencia Fotográfica</h2> <p align="center"> <img src="image/image.png" width="250" /> <img src="image/image-1.png" width="250" /> <img src="image/image-2.png" width="250" /> <img src="image/image-3.png" width="250" /> <img src="image/image-4.png" width="250" /> <img src="image/image-5.png" width="250" /> <img src="image/image-6.png" width="250" /> <img src="image/image-7.png" width="250" /> <img src="image/image-8.png" width="250" /> <img src="image/image-9.png" width="250" /> </p>
+<h2>📸 Evidencia Fotográfica</h2>
 
-<h2>🤖 Uso de Inteligencia Artificial en el Desarrollo</h2> <p> Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como <b>ChatGPT</b> y <b>Cursor AI</b> con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, <b>sin sustituir el criterio y las decisiones técnicas tomadas por el equipo</b>. </p> ```
+ <p align="center"> <img src="image/image.png" width="250" /> <img src="image/image-1.png" width="250" /> <img src="image/image-2.png" width="250" /> <img src="image/image-3.png" width="250" /> <img src="image/image-4.png" width="250" /> <img src="image/image-5.png" width="250" /> <img src="image/image-6.png" width="250" /> <img src="image/image-7.png" width="250" /> <img src="image/image-8.png" width="250" /> <img src="image/image-9.png" width="250" /> </p>
+
+<h2>🤖 Uso de Inteligencia Artificial en el Desarrollo </h2> 
+<p> Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como <b>ChatGPT</b> y <b>Cursor AI</b> con el objetivo de agilizar el flujo de trabajo y obtener orientación en la implementación de ciertas funcionalidades. Estas herramientas sirvieron como apoyo para resolver dudas técnicas, proponer soluciones y optimizar el tiempo de desarrollo, <b>sin sustituir el criterio y las decisiones técnicas tomadas por el equipo</b>. </p> ```
